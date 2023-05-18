@@ -17,6 +17,9 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://jaspersoft.jfrog.io/jaspersoft/jaspersoft-repo"
+    }
 }
 
 dependencies {
@@ -27,7 +30,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'net.sf.jasperreports:jasperreports:6.20.1'
+    implementation 'net.sf.jasperreports:jasperreports:6.20.5'
 }
 
 test {
