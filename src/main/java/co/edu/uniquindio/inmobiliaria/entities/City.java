@@ -1,7 +1,6 @@
-package co.edu.uniquindio.inmobiliaria.entidades;
+package co.edu.uniquindio.inmobiliaria.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -19,7 +18,6 @@ public class City implements Serializable {
     @EqualsAndHashCode.Include
     private Integer id;
 
-    @NotNull
     @Length(max = 50)
     @Column(nullable = false, length = 50)
     private String name;

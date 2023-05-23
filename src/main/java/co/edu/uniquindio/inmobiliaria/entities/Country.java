@@ -1,30 +1,28 @@
-package co.edu.uniquindio.inmobiliaria.entidades;
+package co.edu.uniquindio.inmobiliaria.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
+import java.util.*;
 
 @Entity
+@Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString
-public class Phone implements Serializable {
+public class Country implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Integer id;
 
-    @NotNull
-    @Length(max = 10)
-    @Column(nullable = false, length = 10)
-    private String number;
+    @Length(max = 50)
+    @Column(nullable = false, length = 50)
+    private String name;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Customer customer;
+    @OneToMany(mappedBy = "country")
+    private List<Province> provinces;
 }

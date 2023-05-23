@@ -1,12 +1,10 @@
-package co.edu.uniquindio.inmobiliaria.entidades;
+package co.edu.uniquindio.inmobiliaria.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
@@ -14,21 +12,21 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Province implements Serializable {
+public class Branch implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Integer id;
 
-    @NotNull
-    @Length(max = 50)
-    @Column(nullable = false, length = 50)
+    @Length(max = 200)
+    @Column(nullable = false, length = 200)
     private String name;
 
-    @ManyToOne
-    @JoinColumn (nullable = false)
-    private Country country;
+    @Length(max = 200)
+    @Column(nullable = false, length = 200)
+    private String address;
 
-    @OneToMany(mappedBy = "province")
-    private List<City> cities;
+    @Length(max = 12)
+    @Column(nullable = false, length = 12)
+    private String phone;
 }

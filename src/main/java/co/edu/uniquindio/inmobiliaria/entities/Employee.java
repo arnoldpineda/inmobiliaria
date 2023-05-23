@@ -1,7 +1,6 @@
-package co.edu.uniquindio.inmobiliaria.entidades;
+package co.edu.uniquindio.inmobiliaria.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -12,11 +11,9 @@ import org.hibernate.validator.constraints.Length;
 @NoArgsConstructor
 public class Employee extends User {
   @Length(max = 14)
-  @NotNull
   @Column(length = 14, nullable = false)
   private String phone;
 
-  @NotNull
   @Column(nullable = false)
   private float salario;
 

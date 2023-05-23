@@ -1,4 +1,4 @@
-package co.edu.uniquindio.inmobiliaria.entidades;
+package co.edu.uniquindio.inmobiliaria.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -19,17 +19,14 @@ public class User implements Serializable {
     @EqualsAndHashCode.Include
     private Integer id;
 
-    @NotNull
     @Length(max = 14)
     @Column(nullable = false, length = 14)
     private String dni;
 
-    @NotNull
     @Length(max = 200)
     @Column(nullable = false, length = 200)
     private String name;
-
-    @NotNull
+    
     @Length(max = 100)
     @Email
     @Column(nullable = false, length = 100, unique = true)
