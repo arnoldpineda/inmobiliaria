@@ -1,18 +1,10 @@
 package co.edu.uniquindio.inmobiliaria.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -20,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Customer extends User implements Serializable {
+public class Customer extends User {
     @Length(max = 100)
     @NotNull
     @Column(length = 100, nullable = false)
