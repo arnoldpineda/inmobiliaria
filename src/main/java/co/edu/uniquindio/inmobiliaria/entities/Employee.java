@@ -1,6 +1,7 @@
 package co.edu.uniquindio.inmobiliaria.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -15,7 +16,11 @@ public class Employee extends User {
   private String phone;
 
   @Column(nullable = false)
-  private float salario;
+  private float pay;
+
+  @DecimalMin(value = "0.0")
+  @DecimalMax(value = "100.0")
+  private float commissionPercentage;
 
   @ManyToOne
   @JoinColumn(nullable = false)
