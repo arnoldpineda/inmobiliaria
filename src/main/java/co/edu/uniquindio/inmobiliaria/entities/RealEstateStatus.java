@@ -1,4 +1,5 @@
 package co.edu.uniquindio.inmobiliaria.entities;
 
-public enum State {
+public enum RealEstateStatus {
+    FOR_SALE, SOLD
 }

@@ -1,4 +1,5 @@
 package co.edu.uniquindio.inmobiliaria.entities;
 
-public class VisitType {
+public enum VisitType {
+    PHYSICAL, SALE
 }
