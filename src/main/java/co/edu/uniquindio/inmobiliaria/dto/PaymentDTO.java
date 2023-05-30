@@ -9,9 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BankDTO {
+public class PaymentDTO {
     private Integer id;
     private String name;
-    private String phone;
-    private String email;
 }

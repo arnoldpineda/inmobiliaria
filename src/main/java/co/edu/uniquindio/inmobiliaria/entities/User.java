@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
@@ -40,4 +41,9 @@ public class User implements Serializable {
     @Length(max = 100)
     @Column(nullable = false, length = 100, unique = true)
     private String email;
+
+    @Length(max = 100)
+    @ToString.Exclude
+    @Column(nullable = false, length = 100)
+    private String password;
 }

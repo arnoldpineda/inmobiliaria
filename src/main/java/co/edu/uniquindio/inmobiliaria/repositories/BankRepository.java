@@ -42,6 +42,8 @@ public class BankRepository {
     public void save(BankDTO bank) {
         String sql = "INSERT INTO Bank (name, phone, email) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql, bank.getName(), bank.getPhone(), bank.getEmail());
+        Integer bankId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+        bank.setId(bankId);
     }
 
     public void update(Integer id, BankDTO bank) {

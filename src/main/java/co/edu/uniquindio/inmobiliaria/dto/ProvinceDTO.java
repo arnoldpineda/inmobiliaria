@@ -5,13 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BankDTO {
+public class ProvinceDTO {
     private Integer id;
     private String name;
-    private String phone;
-    private String email;
+    private CountryDTO country;
+    private List<CityDTO> cities;
 }

@@ -5,13 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BankDTO {
+public class BillDTO {
     private Integer id;
-    private String name;
-    private String phone;
-    private String email;
+    private Double value;
+    private LocalDateTime date;
+    private CustomerDTO customer;
+    private RealEstateDTO realEstate;
 }

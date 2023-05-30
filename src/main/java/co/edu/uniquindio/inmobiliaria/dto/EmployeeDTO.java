@@ -9,9 +9,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BankDTO {
+public class EmployeeDTO {
     private Integer id;
+    private String dni;
     private String name;
-    private String phone;
     private String email;
+    private String password;
+    private String phone;
+    private Double pay;
+    private Double commissionPercentage;
+    private PositionDTO position;
+    private BranchDTO branch;
 }
