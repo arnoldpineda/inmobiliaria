@@ -2,6 +2,7 @@ package co.edu.uniquindio.inmobiliaria.repositories;
 
 import co.edu.uniquindio.inmobiliaria.dto.RealEstateDTO;
 import co.edu.uniquindio.inmobiliaria.entities.RealEstateStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ public class RealEstateRepository {
     private final JdbcTemplate jdbcTemplate;
     private final ProjectRepository projectRepository;
 
+    @Autowired
     public RealEstateRepository(JdbcTemplate jdbcTemplate, ProjectRepository projectRepository) {
         this.jdbcTemplate = jdbcTemplate;
         this.projectRepository = projectRepository;

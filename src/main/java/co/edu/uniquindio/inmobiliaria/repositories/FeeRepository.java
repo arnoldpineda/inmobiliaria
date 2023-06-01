@@ -1,6 +1,7 @@
 package co.edu.uniquindio.inmobiliaria.repositories;
 
 import co.edu.uniquindio.inmobiliaria.dto.FeeDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ public class FeeRepository {
     private final SalesPromiseRepository salesPromiseRepository;
     private final PaymentRepository paymentRepository;
 
+    @Autowired
     public FeeRepository(JdbcTemplate jdbcTemplate, SalesPromiseRepository salesPromiseRepository, PaymentRepository paymentRepository) {
         this.jdbcTemplate = jdbcTemplate;
         this.salesPromiseRepository = salesPromiseRepository;

@@ -4,6 +4,7 @@ import co.edu.uniquindio.inmobiliaria.dto.CustomerDTO;
 import co.edu.uniquindio.inmobiliaria.dto.PhoneDTO;
 import co.edu.uniquindio.inmobiliaria.entities.CustomerStatus;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +16,7 @@ public class CustomerRepository {
     private final CityRepository cityRepository;
     private final PhoneRepository phoneRepository;
 
+    @Autowired
     public CustomerRepository(JdbcTemplate jdbcTemplate, CityRepository cityRepository, PhoneRepository phoneRepository) {
         this.jdbcTemplate = jdbcTemplate;
         this.cityRepository = cityRepository;

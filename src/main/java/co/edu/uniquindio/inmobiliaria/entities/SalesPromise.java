@@ -32,10 +32,6 @@ public class SalesPromise implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Length(max = 200)
-    @Column(nullable = false, length = 200)
-    private String name;
-
     @Column(nullable = false)
     private LocalDateTime saleDate;
 

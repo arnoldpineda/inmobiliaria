@@ -1,6 +1,7 @@
 package co.edu.uniquindio.inmobiliaria.repositories;
 
 import co.edu.uniquindio.inmobiliaria.dto.EmployeeDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ public class EmployeeRepository {
     private final PositionRepository positionRepository;
     private final BranchRepository branchRepository;
 
+    @Autowired
     public EmployeeRepository(JdbcTemplate jdbcTemplate, PositionRepository positionRepository, BranchRepository branchRepository) {
         this.jdbcTemplate = jdbcTemplate;
         this.positionRepository = positionRepository;

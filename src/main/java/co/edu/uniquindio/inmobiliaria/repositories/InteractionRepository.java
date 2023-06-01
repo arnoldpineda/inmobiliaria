@@ -2,6 +2,7 @@ package co.edu.uniquindio.inmobiliaria.repositories;
 
 import co.edu.uniquindio.inmobiliaria.dto.InteractionDTO;
 import co.edu.uniquindio.inmobiliaria.entities.VisitType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,7 @@ public class InteractionRepository {
     private final EmployeeRepository employeeRepository;
     private final CustomerRepository customerRepository;
 
+    @Autowired
     public InteractionRepository(JdbcTemplate jdbcTemplate, EmployeeRepository employeeRepository, CustomerRepository customerRepository) {
         this.jdbcTemplate = jdbcTemplate;
         this.employeeRepository = employeeRepository;

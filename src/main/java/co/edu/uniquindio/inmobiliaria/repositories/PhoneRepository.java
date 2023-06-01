@@ -1,8 +1,8 @@
 package co.edu.uniquindio.inmobiliaria.repositories;
 
-import co.edu.uniquindio.inmobiliaria.dto.CustomerDTO;
 import co.edu.uniquindio.inmobiliaria.dto.PhoneDTO;
-import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +13,8 @@ public class PhoneRepository {
     private final JdbcTemplate jdbcTemplate;
     private final CustomerRepository customerRepository;
 
-    public PhoneRepository(JdbcTemplate jdbcTemplate, CustomerRepository customerRepository) {
+    @Autowired
+    public PhoneRepository(JdbcTemplate jdbcTemplate, @Lazy CustomerRepository customerRepository) {
         this.jdbcTemplate = jdbcTemplate;
         this.customerRepository = customerRepository;
     }
