@@ -31,13 +31,14 @@ public class Province implements Serializable {
     private Integer id;
 
     @Length(max = 50)
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 50, unique = true)
     private String name;
 
     @ManyToOne
     @JoinColumn(nullable = false)
     private Country country;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "province")
     private List<City> cities;
 }

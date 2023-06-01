@@ -24,11 +24,14 @@ public class CustomerRepository {
     }
 
     public List<CustomerDTO> findAll() {
-        String sql = "SELECT id, name, address, status, city_id FROM Customer";
+        String sql = "SELECT id, dni, name, email, password, address, status, city_id FROM Customer";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             CustomerDTO customer = new CustomerDTO();
             customer.setId(rs.getInt("id"));
+            customer.setDni(rs.getString("dni"));
             customer.setName(rs.getString("name"));
+            customer.setEmail(rs.getString("email"));
+            customer.setPassword(rs.getString("password"));
             customer.setAddress(rs.getString("address"));
             customer.setStatus(CustomerStatus.valueOf(rs.getString("status")));
             customer.setCity(cityRepository.findById(rs.getInt("city_id")));
@@ -38,11 +41,14 @@ public class CustomerRepository {
     }
 
     public CustomerDTO findById(Integer id) {
-        String sql = "SELECT id, name, address, status, city_id FROM Customer WHERE id = ?";
+        String sql = "SELECT id, dni, name, email, password, address, status, city_id FROM Customer WHERE id = ?";
         List<CustomerDTO> result = jdbcTemplate.query(sql, new Object[]{id}, (rs, rowNum) -> {
             CustomerDTO customer = new CustomerDTO();
             customer.setId(rs.getInt("id"));
+            customer.setDni(rs.getString("dni"));
             customer.setName(rs.getString("name"));
+            customer.setEmail(rs.getString("email"));
+            customer.setPassword(rs.getString("password"));
             customer.setAddress(rs.getString("address"));
             customer.setStatus(CustomerStatus.valueOf(rs.getString("status")));
             customer.setCity(cityRepository.findById(rs.getInt("city_id")));
@@ -53,16 +59,16 @@ public class CustomerRepository {
     }
 
     public void save(CustomerDTO customer) {
-        String sql = "INSERT INTO Customer (name, address, status, city_id) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, customer.getName(), customer.getAddress(), customer.getStatus().name(), customer.getCity().getId());
+        String sql = "INSERT INTO Customer (dni, name, email, password, address, status, city_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, customer.getDni(), customer.getName(), customer.getEmail(), customer.getPassword(), customer.getAddress(), customer.getStatus().name(), customer.getCity().getId());
         Integer customerId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         customer.setId(customerId);
         savePhonesForCustomer(customer);
     }
 
     public void update(Integer id, CustomerDTO customer) {
-        String sql = "UPDATE Customer SET name = ?, address = ?, status = ?, city_id = ? WHERE id = ?";
-        jdbcTemplate.update(sql, customer.getName(), customer.getAddress(), customer.getStatus().name(), customer.getCity().getId(), id);
+        String sql = "UPDATE Customer SET dni = ?, name = ?, email = ?, password = ?, address = ?, status = ?, city_id = ? WHERE id = ?";
+        jdbcTemplate.update(sql, customer.getDni(), customer.getName(), customer.getEmail(), customer.getPassword(), customer.getAddress(), customer.getStatus().name(), customer.getCity().getId(), id);
         deletePhonesForCustomer(id);
         savePhonesForCustomer(customer);
     }

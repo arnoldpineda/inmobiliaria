@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,5 +12,4 @@ import java.util.List;
 public class CountryDTO {
     private Integer id;
     private String name;
-    private List<ProvinceDTO> provinces;
 }

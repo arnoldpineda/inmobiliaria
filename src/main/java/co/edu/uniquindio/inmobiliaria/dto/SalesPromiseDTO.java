@@ -14,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class SalesPromiseDTO {
     private Integer id;
-    private String name;
     private LocalDateTime saleDate;
     private Double saleValue;
     private Integer realEstateNumber;
